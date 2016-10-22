@@ -32,7 +32,7 @@ featureNames <- features[[2]]
 meanAndStdFeatureNames <- featureNames[grepl("\\-mean\\(\\)|\\-std\\(\\)", featureNames)]
 columnsToSelect <- c("subject", "activity", as.character(meanAndStdFeatureNames))
 dataset1 <- datasetRaw[, columnsToSelect]
-dataset2 <- aggregate(dataset1[, c(-1, -2)], by = dataset2[, c(1,2)], FUN = mean)
+dataset2 <- aggregate(dataset1[, c(-1, -2)], by = dataset1[, c(1,2)], FUN = mean)
 dataset2Headings <- names(dataset2)
 dataset2Headings <- paste(dataset2Headings, "-meanBySubjectAndActivity", sep="")
 dataset2Headings[1] <- "subject"
